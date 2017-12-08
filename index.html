@@ -54,7 +54,9 @@
 
         var arToolkitContext = new THREEx.ArToolkitContext({
             cameraParametersUrl: "assets/camera_para.dat",
-            detectionMode: "color",
+            detectionMode: "mono",
+            canvasWidth: 80 * 3,
+            canvasHeight: 80 * 3
         });
 
         arToolkitContext.init(function onCompleted() {
