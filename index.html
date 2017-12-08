@@ -64,6 +64,7 @@
         onRenderFcts.push(function () {
             if (arToolkitSource.ready === false) return;
             arToolkitContext.update(arToolkitSource.domElement);
+            scene.visible = camera.visible
         });
 
         var artoolkitMarker = new THREEx.ArMarkerControls(arToolkitContext, camera, {
@@ -71,6 +72,8 @@
             patternUrl: "assets/webar.patt",
             changeMatrixMode: "cameraTransformMatrix"
         });
+
+        scene.visible = false
 
         var geometry = new THREE.CubeGeometry(1, 1, 1);
         var material = new THREE.MeshNormalMaterial({
