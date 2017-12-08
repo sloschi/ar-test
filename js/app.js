@@ -1,7 +1,5 @@
 // @ts-check
 
-var SNOW_COUNT = 250;
-
 var arToolkitSource = new THREEx.ArToolkitSource({
   sourceType: "webcam"
 });
@@ -23,7 +21,16 @@ arToolkitSource.init(function() {
 
   var scene = new THREE.Scene();
 
-  addLights(scene);
+  var light1 = new THREE.DirectionalLight(0xffeedd);
+  light1.position.set(0, 0, 1);
+  scene.add(light1);
+
+  var light2 = new THREE.DirectionalLight(0xffeedd);
+  light2.position.set(0, 5, -5);
+  scene.add(light2);
+
+  var light3 = new THREE.AmbientLight(0x222222);
+  scene.add(light3);
 
   var camera = new THREE.Camera();
   scene.add(camera);
@@ -98,16 +105,3 @@ arToolkitSource.init(function() {
     });
   });
 });
-
-function addLights(aScene) {
-  var light1 = new THREE.DirectionalLight(0xffeedd);
-  light1.position.set(0, 0, 1);
-  aScene.add(light1);
-
-  var light2 = new THREE.DirectionalLight(0xffeedd);
-  light2.position.set(0, 5, -5);
-  aScene.add(light2);
-
-  var light3 = new THREE.AmbientLight(0x222222);
-  aScene.add(light3);
-}
